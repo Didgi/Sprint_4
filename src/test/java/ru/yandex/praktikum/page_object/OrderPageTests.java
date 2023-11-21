@@ -1,27 +1,29 @@
 package ru.yandex.praktikum.page_object;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.After;
-import org.openqa.selenium.WebDriver;
+
 
 public class OrderPageTests {
     private WebDriver driver;
 
     @Before
-    /* public void startUpChrome() {
-       // WebDriverManager.chromedriver().setup();
-        //driver = new ChromeDriver();
-    }*/
-    public void startUpFirefox() {
+    public void startUpChrome() {
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+    }
+    /* public void startUpFirefox() {
         WebDriverManager.firefoxdriver().setup();
         driver = new FirefoxDriver();
-    }
+    } */
 
     @Test
     public void makeOrderViaOrderButtonAboveShouldBeCreatedWithPositiveData() {
-        //driver = new ChromeDriver();
         MainPage objMainPage = new MainPage(driver);
         OrderPage objOrderPage = new OrderPage(driver);
         objMainPage.openSite();
@@ -32,7 +34,6 @@ public class OrderPageTests {
 
     @Test
     public void makeOrderViaOrderButtonBottomShouldBeCreatedWithPositiveData() {
-        //driver = new ChromeDriver();
         MainPage objMainPage = new MainPage(driver);
         OrderPage objOrderPage = new OrderPage(driver);
         objMainPage.openSite();

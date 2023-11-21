@@ -7,16 +7,17 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.After;
 import org.junit.Assert;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 @RunWith(Parameterized.class)
-public class MainPageTests {
+public class MainPageFaqTests {
     private WebDriver driver;
     private final int index;
     private final String expectedQuestion;
     private final String expectedAnswer;
 
-    public MainPageTests(int index, String expectedQuestion, String expectedAnswer) {
+    public MainPageFaqTests(int index, String expectedQuestion, String expectedAnswer) {
 
         this.index = index;
         this.expectedQuestion = expectedQuestion;
@@ -36,15 +37,16 @@ public class MainPageTests {
                 {7, "Я жизу за МКАДом, привезёте?", "Да, обязательно. Всем самокатов! И Москве, и Московской области."}
         };
     }
+
     @Before
-   /* public void startUpChrome() {
-       WebDriverManager.chromedriver().setup();
-       //driver = new ChromeDriver();
-   }*/
-    public void startUpFirefox() {
+    public void startUpChrome() {
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+    }
+    /*public void startUpFirefox() {
         WebDriverManager.firefoxdriver().setup();
         driver = new FirefoxDriver();
-    }
+    } */
 
     @Test
     public void checkQuestionsAnswersInFaqShouldEquals() {
@@ -56,6 +58,7 @@ public class MainPageTests {
         Assert.assertEquals(expectedAnswer, objMainPage.getAnswer(index));
 
     }
+
     @After
     public void tearDown() {
         driver.quit();

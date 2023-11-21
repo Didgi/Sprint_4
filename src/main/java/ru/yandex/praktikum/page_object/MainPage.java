@@ -13,12 +13,6 @@ public class MainPage {
         this.driver = driver;
     }
 
-    //Логотип Яндекс
-    private final By logoYandex = By.xpath(".//*[@alt='Yandex']");
-    //Логотип Самокат
-    private final By logoSamokat = By.xpath(".//*[@alt='Scooter']");
-    //Картинка самоката
-    private final By pictureSamokat = By.xpath(".//img[@alt='Scooter blueprint']");
     //Кнопка "заказать" вверху страницы
     //private final By orderButtonAbove = By.xpath(".//div[@class='Header_Nav__AGCXC']/button[text()='Заказать']");
     private final By orderButtonAbove = By.xpath(".//button[@class='Button_Button__ra12g' and text()='Заказать']");
@@ -69,9 +63,5 @@ public class MainPage {
         orderButtonElementToClick.click();
         new WebDriverWait(driver, 3).until(ExpectedConditions.visibilityOfElementLocated(orderModalCheck));
     }
-    public void returnToMainPageViaLogoSamokat(){
-        clickOrderButtonAbove();
-        driver.findElement(logoSamokat).click();
-        new WebDriverWait(driver,3).until(ExpectedConditions.visibilityOfElementLocated(pictureSamokat));
-    }
+
 }
