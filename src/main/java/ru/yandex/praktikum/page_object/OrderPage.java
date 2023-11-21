@@ -117,11 +117,12 @@ public class OrderPage {
         driver.findElement(commentForDelivery).sendKeys(comment);
     }
 
-    public void finishOrder() {
+    public boolean finishOrder() {
         driver.findElement(orderButton).click();
         new WebDriverWait(driver, 3).until(ExpectedConditions.visibilityOfElementLocated(confirmModal));
         driver.findElement(yesButton).click();
-        new WebDriverWait(driver, 3).until(ExpectedConditions.visibilityOfElementLocated(successOrderModal));
+        WebElement successOrderModalElement = new WebDriverWait(driver, 3).until(ExpectedConditions.visibilityOfElementLocated(successOrderModal));
+        return successOrderModalElement.isDisplayed();
     }
 
     public void clickNextButton() {
@@ -129,7 +130,7 @@ public class OrderPage {
         new WebDriverWait(driver, 3).until(ExpectedConditions.visibilityOfElementLocated(arriveDate));
     }
 
-    public void makeOrder(String name, String surname, String address, String number, String periodOption, String color, String comment) {
+    public boolean makeOrder(String name, String surname, String address, String number, String periodOption, String color, String comment) {
         setName(name);
         setSurname(surname);
         setAddress(address);
@@ -140,10 +141,11 @@ public class OrderPage {
         chooseRentalPeriod(periodOption);
         chooseSamokatColor(color);
         setCommentForDelivery(comment);
-        finishOrder();
+        return finishOrder();
+
     }
 
-    public void makeOrderAnotherWay(String name, String surname, String address, String station, String number, String date, String periodOption, String color, String comment) {
+    public boolean makeOrderAnotherWay(String name, String surname, String address, String station, String number, String date, String periodOption, String color, String comment) {
         setName(name);
         setSurname(surname);
         setAddress(address);
@@ -154,6 +156,6 @@ public class OrderPage {
         chooseRentalPeriod(periodOption);
         chooseSamokatColor(color);
         setCommentForDelivery(comment);
-        finishOrder();
+        return finishOrder();
     }
 }

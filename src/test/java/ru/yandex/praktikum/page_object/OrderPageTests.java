@@ -1,6 +1,7 @@
 package ru.yandex.praktikum.page_object;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,11 +14,11 @@ public class OrderPageTests {
     private WebDriver driver;
 
     @Before
-    public void startUpChrome() {
+     public void startUpChrome() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
     }
-    /* public void startUpFirefox() {
+     /* public void startUpFirefox() {
         WebDriverManager.firefoxdriver().setup();
         driver = new FirefoxDriver();
     } */
@@ -29,7 +30,9 @@ public class OrderPageTests {
         objMainPage.openSite();
         objMainPage.cookieSubmit();
         objMainPage.clickOrderButtonAbove();
-        objOrderPage.makeOrder("Тест", "Тестович", "Москва", "89151231122", "трое суток", "серый", "привет, курьер");
+        boolean isOrderSuccess = objOrderPage.makeOrder("Тест", "Тестович", "Москва", "89151231122", "трое суток", "серый", "привет, курьер");
+        Assert.assertTrue(isOrderSuccess);
+
     }
 
     @Test
@@ -39,7 +42,8 @@ public class OrderPageTests {
         objMainPage.openSite();
         objMainPage.cookieSubmit();
         objMainPage.clickOrderButtonBottom();
-        objOrderPage.makeOrderAnotherWay("Тест", "Второй", "Москва, ул. Большая, д.3, кв. 25", "Измайловск", "+79151239988", "27.11.2023", "сутки", "чёрный", "позвоните заранее");
+        boolean isOrderSuccess = objOrderPage.makeOrderAnotherWay("Тест", "Второй", "Москва, ул. Большая, д.3, кв. 25", "Измайловск", "+79151239988", "27.11.2023", "сутки", "чёрный", "позвоните заранее");
+        Assert.assertTrue(isOrderSuccess);
     }
 
     @After

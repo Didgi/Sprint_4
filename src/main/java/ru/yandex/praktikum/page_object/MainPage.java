@@ -13,8 +13,6 @@ public class MainPage {
         this.driver = driver;
     }
 
-    //Кнопка "заказать" вверху страницы
-    //private final By orderButtonAbove = By.xpath(".//div[@class='Header_Nav__AGCXC']/button[text()='Заказать']");
     private final By orderButtonAbove = By.xpath(".//button[@class='Button_Button__ra12g' and text()='Заказать']");
     //Кнопка "заказать" внизу страницы
     private final By orderButtonBottom = By.xpath(".//div[@class='Home_FinishButton__1_cWm']/button[text()='Заказать']");
