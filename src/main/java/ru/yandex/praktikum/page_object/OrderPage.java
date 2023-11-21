@@ -3,7 +3,7 @@ package ru.yandex.praktikum.page_object;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import ru.yandex.praktikum.Support.Support;
+import ru.yandex.praktikum.support.Support;
 
 public class OrderPage {
     private final WebDriver driver;

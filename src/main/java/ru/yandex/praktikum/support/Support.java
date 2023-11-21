@@ -1,4 +1,4 @@
-package ru.yandex.praktikum.Support;
+package ru.yandex.praktikum.support;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
