@@ -1,14 +1,12 @@
-package ru.yandex.praktikum.orderPage;
+package ru.yandex.praktikum.page_object;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import ru.yandex.praktikum.mainPage.MainPage;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.After;
 import org.openqa.selenium.WebDriver;
 
-public class OrderPageTest {
+public class OrderPageTests {
     private WebDriver driver;
 
     @Before
@@ -29,7 +27,7 @@ public class OrderPageTest {
         objMainPage.openSite();
         objMainPage.cookieSubmit();
         objMainPage.clickOrderButtonAbove();
-        objOrderPage.makeOrder("Тест", "Тестович", "Москва", "89151231122", "трое суток", "серый", "приветики");
+        objOrderPage.makeOrder("Тест", "Тестович", "Москва", "89151231122", "трое суток", "серый", "привет, курьер");
     }
 
     @Test
@@ -40,7 +38,7 @@ public class OrderPageTest {
         objMainPage.openSite();
         objMainPage.cookieSubmit();
         objMainPage.clickOrderButtonBottom();
-        objOrderPage.makeOrderAnotherWay("Тест", "Второй", "Москва, ул. Большая, д.3, кв. 25", "Измайловск", "+79151239988", "25.11.2023", "сутки", "чёрный", "ты - молодец");
+        objOrderPage.makeOrderAnotherWay("Тест", "Второй", "Москва, ул. Большая, д.3, кв. 25", "Измайловск", "+79151239988", "27.11.2023", "сутки", "чёрный", "позвоните заранее");
     }
 
     @After

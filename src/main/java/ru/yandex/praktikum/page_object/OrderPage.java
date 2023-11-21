@@ -1,4 +1,4 @@
-package ru.yandex.praktikum.orderPage;
+package ru.yandex.praktikum.page_object;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
