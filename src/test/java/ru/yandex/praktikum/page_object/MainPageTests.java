@@ -1,4 +1,4 @@
-package ru.yandex.praktikum.mainPage;
+package ru.yandex.praktikum.page_object;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -8,16 +8,15 @@ import org.junit.Test;
 import org.junit.After;
 import org.junit.Assert;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 @RunWith(Parameterized.class)
-public class MainPageTest {
+public class MainPageTests {
     private WebDriver driver;
     private final int index;
     private final String expectedQuestion;
     private final String expectedAnswer;
 
-    public MainPageTest(int index, String expectedQuestion, String expectedAnswer) {
+    public MainPageTests(int index, String expectedQuestion, String expectedAnswer) {
 
         this.index = index;
         this.expectedQuestion = expectedQuestion;

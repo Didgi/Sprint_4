@@ -1,11 +1,10 @@
-package ru.yandex.praktikum.mainPage;
+package ru.yandex.praktikum.page_object;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import ru.yandex.praktikum.orderPage.OrderPage;
 
 
 public class MainPage {
@@ -18,6 +17,8 @@ public class MainPage {
     private final By logoYandex = By.xpath(".//*[@alt='Yandex']");
     //Логотип Самокат
     private final By logoSamokat = By.xpath(".//*[@alt='Scooter']");
+    //Картинка самоката
+    private final By pictureSamokat = By.xpath(".//img[@alt='Scooter blueprint']");
     //Кнопка "заказать" вверху страницы
     //private final By orderButtonAbove = By.xpath(".//div[@class='Header_Nav__AGCXC']/button[text()='Заказать']");
     private final By orderButtonAbove = By.xpath(".//button[@class='Button_Button__ra12g' and text()='Заказать']");
@@ -67,5 +68,10 @@ public class MainPage {
         WebElement orderButtonElementToClick = new WebDriverWait(driver, 3).until(ExpectedConditions.elementToBeClickable(orderButtonBottom));
         orderButtonElementToClick.click();
         new WebDriverWait(driver, 3).until(ExpectedConditions.visibilityOfElementLocated(orderModalCheck));
+    }
+    public void returnToMainPageViaLogoSamokat(){
+        clickOrderButtonAbove();
+        driver.findElement(logoSamokat).click();
+        new WebDriverWait(driver,3).until(ExpectedConditions.visibilityOfElementLocated(pictureSamokat));
     }
 }
