@@ -1,4 +1,4 @@
-package ru.yandex.praktikum.page_object;
+package ru.yandex.praktikum.pageobject;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -8,7 +8,6 @@ import org.junit.Test;
 import org.junit.After;
 import org.junit.Assert;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 @RunWith(Parameterized.class)
 public class MainPageFaqTests {
